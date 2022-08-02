@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<listing xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
+    <columns name="customer_columns" class="Magento\Customer\Ui\Component\Listing\Columns" >
+        <column name="total_purchase" class="Actecnology\CustomerTotalPurchase\Ui\Component\Listing\Column\TotalPurchase" sortOrder="90">
+            <settings>
+                <dataType>text</dataType>
+                <label translate="true">Total Purchase</label>
+                <sortable>false</sortable>
+                <filter>false</filter>
+            </settings>
+        </column>
+    </columns>
+</listing>
