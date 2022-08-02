@@ -1,6 +1,6 @@
 # Actecnology CustomerTotalPurchase for Magento 2
 
-## How to install & upgrade Actecnology_Core
+## How to install & upgrade Actecnology_CustomerTotalPurchase
 
 ### 1. Install
 #### 1 Install
