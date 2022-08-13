@@ -67,7 +67,7 @@ class TotalPurchase extends Column
                         //$total += $order->getBaseGrandTotal();
                     }
                     $total;
-                    $item[$this->getData('name')] = number_format($total, 2, ',', ' ');
+                    $item[$this->getData('name')] = '$'.number_format($total, 2, '.', ',');
                     //$item[$this->getData('name')] = count($customerOrder);//Value which you want to display
 
                     // second form
