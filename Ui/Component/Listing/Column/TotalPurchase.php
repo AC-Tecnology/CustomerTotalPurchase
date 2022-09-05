@@ -51,12 +51,16 @@ class TotalPurchase extends Column
      */
     public function prepareDataSource(array $dataSource)
     {
+        $objectManager = \Magento\Framework\App\ObjectManager::getInstance(); // Instance of Object Manager
+        $priceHelper = $objectManager->create('Magento\Framework\Pricing\Helper\Data'); // Instance of Pricing Helper
+
+
         if (isset($dataSource['data']['items'])) {
             foreach ($dataSource['data']['items'] as & $item) {
 
                 $order  = $this->_orderRepository->get($item["entity_id"]);
 				if($order->getCustomerId()){
-
+                    
                     // First form
                     $total = 0;
                     $customerOrder = $this->orderCollectionFactory->create()->addFieldToFilter('customer_id', $item['entity_id'])
@@ -67,7 +71,8 @@ class TotalPurchase extends Column
                         //$total += $order->getBaseGrandTotal();
                     }
                     $total;
-                    $item[$this->getData('name')] = '$'.number_format($total, 2, '.', ',');
+                    $formattedCurrencyValue = $priceHelper->currency($total, true, false);
+                    $item[$this->getData('name')] = $formattedCurrencyValue; //'GTQ'.number_format($total, 2, '.', ',');
                     //$item[$this->getData('name')] = count($customerOrder);//Value which you want to display
 
                     // second form
